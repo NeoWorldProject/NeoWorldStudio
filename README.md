@@ -2,7 +2,7 @@
 
 Agentic Reconstruction of Editable 3D Objects and Scenes
 
-[Project page & demos](https://neoworldproject.github.io/Page/) · [English](#english) · [中文](#中文)
+[Project page & demos](https://neoworldproject.github.io/Studio/) · [English](#english) · [中文](#中文)
 
 <p>
   <a href="https://github.com/NeoWorldProject/NeoWorldStudio">GitHub</a> &nbsp;·&nbsp;
