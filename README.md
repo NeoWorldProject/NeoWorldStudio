@@ -6,6 +6,7 @@
   <a href="https://neoworldproject.github.io/Studio/"><img src="assets/project-page.svg" alt="Project page and demos"></a>
   <img src="assets/arxiv-soon.svg" alt="arXiv: coming soon">
   <img src="assets/models-soon.svg" alt="Hugging Face: coming soon">
+  <img src="assets/app-store-soon.svg" alt="App Store: coming soon">
 </p>
 
 <p align="center"><strong>English</strong> · <a href="README_zh-CN.md">简体中文</a></p>
@@ -38,6 +39,7 @@ At scene scale, we begin with an initial reconstruction of the environment and i
 - [ ] Project code, progressively from late September 2026
 - [ ] MATRIX-Preview pretrained weights, progressively from late September 2026
 - [ ] Paper and arXiv link
+- [ ] App Store app, coming soon (release date to be announced)
 
 **MATRIX-Preview** is our pretrained vision-language model for scene reconstruction. The Hugging Face and arXiv links will be added when available.
 

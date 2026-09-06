@@ -6,6 +6,7 @@
   <a href="https://neoworldproject.github.io/Studio/"><img src="assets/project-page.svg" alt="项目主页与演示"></a>
   <img src="assets/arxiv-soon.svg" alt="arXiv：即将发布">
   <img src="assets/models-soon.svg" alt="Hugging Face：即将发布">
+  <img src="assets/app-store-soon.svg" alt="App Store：即将发布">
 </p>
 
 <p align="center"><a href="README.md">English</a> · <strong>简体中文</strong></p>
@@ -38,6 +39,7 @@ NeoWorld Studio 将初始重建与智能体驱动的迭代优化相结合，从�
 - [ ] 项目代码，计划从 2026 年 9 月底起陆续开放
 - [ ] MATRIX-Preview 预训练权重，计划从 2026 年 9 月底起陆续开放
 - [ ] 论文与 arXiv 链接
+- [ ] App Store 应用，即将发布（上架时间待定）
 
 **MATRIX-Preview** 是我们面向场景重建的预训练视觉语言模型。Hugging Face 与 arXiv 链接将在可用后补充。
 
