@@ -1,62 +1,68 @@
-<h1 align="center">NeoWorld Studio</h1>
+# NeoWorld-3: Agentic World Authoring with Tunable Geometry Programs
 
-<p align="center"><strong>White-Box, Agentic Reconstruction of Interactive 3D Worlds</strong></p>
+[简体中文](README_zh-CN.md) · [Project page and demonstrations](https://neoworldproject.github.io/Studio/) · [NeoSDK](https://github.com/NeoWorldProject/NeoSDK)
 
-<p align="center">
-  <a href="https://neoworldproject.github.io/Studio/"><img src="assets/project-page.svg" alt="Project page and demos"></a>
-  <img src="assets/arxiv-soon.svg" alt="arXiv: coming soon">
-  <img src="assets/models-soon.svg" alt="Hugging Face: coming soon">
-  <img src="assets/app-store-soon.svg" alt="App Store: coming soon">
-</p>
+**NeoWorld Studio** is the application implementing the NeoWorld-3 framework. It
+reconstructs objects and scenes from visual observations as tunable geometry
+programs, retaining editable construction logic, named parameters, and part
+structure alongside rendered previews and 3D assets.
 
-<p align="center"><strong>English</strong> · <a href="README_zh-CN.md">简体中文</a></p>
+> **Project introduction.** This edition contains documentation only. It does
+> not include implementation source code or an installable application.
 
-> **Research preview.** This repository currently contains the project introduction. Code and **MATRIX-Preview** weights are planned for progressive release from **late September 2026**.
+## From observations to editable worlds
 
-<p align="center">
-  <a href="https://neoworldproject.github.io/Studio/#demos">
-    <img src="assets/scene-preview.jpg" width="800" alt="Scene reconstruction preview: original capture on the left, Blender reconstruction on the right.">
-  </a>
-</p>
-<p align="center"><sub>Original capture (left) · Reconstruction rendered in Blender (right)</sub><br><a href="https://neoworldproject.github.io/Studio/#demos"><strong>Watch the scene demo →</strong></a></p>
+NeoWorld-3 combines agentic construction with numerical refinement. Agents
+inspect the observations, author a geometry program, render it, and revise its
+structure. Geometry tools fit the program's exposed parameters and object
+placements against the observed views. Shared parameters express relationships
+between parts, preserving the dimensions and attachments encoded in the program.
 
-## Overview
+The workflow connects three components:
 
-NeoWorld Studio takes a **white-box** approach to building editable, interactive 3D objects and scenes. VLM agents author explicit geometry and refine it through NeoSDK tools, **without relying on pretrained 3D generation models**.
+| Component | Role |
+| --- | --- |
+| **NeoWorld Studio** | Coordinates object and scene reconstruction, task state, and user feedback. |
+| **NeoMCP** | Exposes observation, source editing, rendering, measurement, and refinement as agent tools. |
+| **[NeoSDK](https://github.com/NeoWorldProject/NeoSDK)** | Supplies geometry authoring, native execution, inspection, and parameter refinement. |
 
-Geometry programs, part structure, and refinement steps remain explicit, interpretable, and editable. Reconstruction is not tied to a pretrained 3D generator's learned shape space: new objects can be addressed through explicit modeling and tool-based refinement.
+## Framework capabilities
 
-### Objects: initialize, observe, refine
+- **Objects and compositional scenes.** Construct individual assets from visual
+  references and assemble them into a shared scene. Local edits can update a
+  part, an object, or its placement while retaining the surrounding construction.
+- **Tunable geometry programs.** Keep construction, parameters, and placement
+  explicit so structural editing and numerical fitting operate on the same
+  editable representation.
+- **Differentiable refinement.** Evaluate supported programs in a tensor geometry
+  twin with batched rasterization. Native/twin consistency checks precede search;
+  Blender materializes the baseline and selected candidates and provides native
+  renders.
+- **Geometry and articulation checks.** Inspect native geometry and proposed
+  joint relationships. Configured physics feedback can propose bounded rigid
+  corrections for subsequent geometry and visual checks.
+- **Optional recursive self-improvement.** A research extension develops reusable
+  tool candidates from completed-task traces. Candidates undergo development
+  checks before entering a provisional library; ongoing tasks retain their fixed
+  tool snapshot.
 
-For each object, we first create an initial reconstruction, or **t0**. An agent then compares rendered views with the observations and calls [NeoSDK](https://github.com/NeoWorldProject/NeoSDK)'s geometry optimization tools to refine the object's shape and structure.
+Scene delegation and metric-scale calibration remain experimental. Recursive
+self-improvement is optional and disabled for ordinary tasks by default.
+Articulation hypotheses depend on the available evidence; task completion and
+geometric admission alone do not establish reconstruction quality or physical
+validity.
 
-### Scenes: initialize, assemble, refine
+## Explore the project
 
-At scene scale, we begin with an initial reconstruction of the environment and its object layout. Once the objects have been reconstructed, we assemble them into the scene and use scene-level visual feedback to further refine geometry, placement, and their fit within the surrounding environment.
+The [project page](https://neoworldproject.github.io/Studio/) presents the
+framework, a scene reconstruction demonstration, and interactive articulated
+assets. The object viewer demonstrates kinematics; it is not a physics
+simulation.
 
-## Toward Interactive, Simulation-Ready Scenes
+[NeoSDK](https://github.com/NeoWorldProject/NeoSDK) describes the geometry toolkit
+underlying the framework. This introduction does not announce a code-release
+date.
 
-- **Articulated motion:** configure movable joints, their axes, and motion ranges to create objects with controllable articulation.
-- **Physics, part by part:** assign physical parameters at the part level, including density, with mass and inertia derived from geometry.
-- **Watertight geometry:** use NeoSDK's solid construction and adaptation tools to build and inspect watertight physical geometry for suitable parts.
+## License
 
-**Research direction: physics-in-the-loop.** We are extending this foundation so simulation feedback can inform subsequent modeling and optimization toward interactive, simulation-ready scenes.
-
-## Release Roadmap
-
-- [x] Project homepage and scene demo
-- [x] NeoWorld Studio and NeoSDK repository introductions
-- [ ] Project code, progressively from late September 2026
-- [ ] MATRIX-Preview pretrained weights, progressively from late September 2026
-- [ ] Paper and arXiv link
-- [ ] App Store app, coming soon (release date to be announced)
-
-**MATRIX-Preview** is our pretrained vision-language model for scene reconstruction. The Hugging Face and arXiv links will be added when available.
-
-## Related Project
-
-[**NeoSDK**](https://github.com/NeoWorldProject/NeoSDK) provides the geometry construction and optimization tools used in the reconstruction workflow.
-
----
-
-<p align="center"><a href="https://neoworldproject.github.io/Studio/">Project page</a> · <a href="https://github.com/NeoWorldProject/NeoSDK">NeoSDK</a> · <a href="README_zh-CN.md">简体中文</a></p>
+See [LICENSE](LICENSE) for the license accompanying this repository edition.
